@@ -1,0 +1,28 @@
+# Python
+*.pyc
+*.pyo
+__pycache__/
+venv/
+chroma_db/
+
+# 编辑器
+.idea/
+.vscode/
+
+# 构建和临时文件
+build/
+dist/
+*.egg-info/
+*.egg
+*.pyc
+*.pyo
+*.swp
+*~
+tmp/
+
+# 系统生成文件
+.DS_Store
+Thumbs.db
+
+# 配置
+.env
