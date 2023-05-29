@@ -21,10 +21,10 @@ pip install -r requirements.txt
 ### 依赖包有
 
 - chromadb
-- install tiktoken
-- install unstructured
-- install tabulate
-- install pdf2image
+- tiktoken
+- unstructured
+- tabulate
+- pdf2image
 
 ## 运行说明
 
