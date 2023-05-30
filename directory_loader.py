@@ -2,6 +2,7 @@ from langchain.vectorstores import Chroma
 from langchain.document_loaders import DirectoryLoader
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.text_splitter import CharacterTextSplitter
+from langchain.embeddings import SentenceTransformerEmbeddings
 
 # 初始化，加载env变量
 import init
@@ -17,7 +18,8 @@ text_splitter = CharacterTextSplitter(chunk_size=100, chunk_overlap=0)
 split_docs = text_splitter.split_documents(documents)
 
 # 初始化 openai 的 embeddings 对象
-embeddings = OpenAIEmbeddings()
+# embeddings = OpenAIEmbeddings()
+embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
 
 # 将 document 通过 openai 的 embeddings 对象计算 embedding 向量信息并临时存入 Chroma 向量数据库，用于后续匹配查询
 docsearch = Chroma.from_documents(

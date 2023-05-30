@@ -2,6 +2,7 @@ from langchain import OpenAI
 from langchain.vectorstores import Chroma
 from langchain.chains import RetrievalQA
 from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.embeddings import SentenceTransformerEmbeddings
 
 
 # 初始化，加载env变量
@@ -10,7 +11,8 @@ import init
 
 def main():
     llm = OpenAI(temperature=0.5)
-    embeddings = OpenAIEmbeddings()
+    # embeddings = OpenAIEmbeddings()
+    embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
 
     # 从数据库读取documents
     docsearch = Chroma(persist_directory="./chroma_db", embedding_function=embeddings)
