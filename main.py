@@ -15,10 +15,10 @@ def main():
     embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
 
     # 从数据库读取documents
-    docsearch = Chroma(persist_directory="./chroma_db", embedding_function=embeddings)
+    doc_search = Chroma(persist_directory="./chroma_db", embedding_function=embeddings)
 
     # 创建问答对象
-    retriever = docsearch.as_retriever()
+    retriever = doc_search.as_retriever()
     retrievalQA = RetrievalQA.from_chain_type(
         llm=llm, chain_type="stuff", retriever=retriever
     )

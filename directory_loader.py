@@ -22,9 +22,9 @@ split_docs = text_splitter.split_documents(documents)
 embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
 
 # 将 document 通过 openai 的 embeddings 对象计算 embedding 向量信息并临时存入 Chroma 向量数据库，用于后续匹配查询
-docsearch = Chroma.from_documents(
+doc_search = Chroma.from_documents(
     split_docs, embeddings, persist_directory="./chroma_db"
 )
-docsearch.persist()
+doc_search.persist()
 
 print("数据已存入本地Chroma")
